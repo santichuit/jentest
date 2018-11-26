@@ -1,9 +1,10 @@
-FROM busybox
+FROM ubuntu
 LABEL maintainer=”mstewart@riotgames.com”
 
 USER root
-RUN mkdir /var/log/santiago
-RUN chown -R santiago:santiago /var/log/santiago
-USER santiago
+RUN mkdir /home/santiago
+RUN useradd santiago
+RUN chown -R santiago:santiago /home/santiago
+
 
 ENV JAVA_OPTS="-Xmx8192m"
